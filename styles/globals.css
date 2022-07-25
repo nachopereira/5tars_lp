@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,400;0,600;0,700;0,900;1,200&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Source Sans Pro", sans-serif;
+  }
+}
+@layer components {
+  .outlined-shadow-text {
+    position: relative;
+    z-index: 1;
+  }
+  .outlined-shadow-sm-text {
+    position: relative;
+    z-index: 1;
+  }
+  .outlined-shadow-text::before {
+    position: absolute;
+    color: theme(colors.brand.DEFAULT);
+    text-shadow: 1px 0 0 theme(colors.brand.light),
+      -1px 0 0 theme(colors.brand.light), 0 1px 0 theme(colors.brand.light),
+      0 -1px 0 theme(colors.brand.light), 1px 1px theme(colors.brand.light),
+      -1px -1px 0 theme(colors.brand.light),
+      1px -1px 0 theme(colors.brand.light), -1px 1px 0 theme(colors.brand.light);
+    z-index: -1;
+    white-space: pre-line;
+  }
+  .outlined-shadow-sm-text::before {
+    position: absolute;
+    color: theme(colors.brand.DEFAULT);
+    text-shadow: 0.3px 0 0 theme(colors.brand.light),
+      -0.3px 0 0 theme(colors.brand.light), 0 0.3px 0 theme(colors.brand.light),
+      0 -0.3px 0 theme(colors.brand.light),
+      0.3px 0.3px theme(colors.brand.light),
+      -0.3px -0.3px 0 theme(colors.brand.light),
+      0.3px -0.3px 0 theme(colors.brand.light),
+      -0.3px 0.3px 0 theme(colors.brand.light);
+    z-index: -1;
+    white-space: pre-line;
+  }
+  .card-gradient-border-light {
+    background: linear-gradient(
+        to right,
+        theme(colors.brand.dark),
+        theme(colors.brand.dark)
+      ),
+      linear-gradient(
+        to right,
+        theme(colors.brand.light),
+        theme(colors.brand.light2)
+      );
+
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+  }
+  .card-gradient-border-brand-to-trans-r {
+    background: linear-gradient(
+        to right,
+        theme(colors.brand.dark),
+        theme(colors.brand.dark)
+      ),
+      linear-gradient(to right, theme(colors.brand.light), transparent);
+
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+  }
+  .card-gradient-border-brand-to-trans-l {
+    background: linear-gradient(
+        to right,
+        theme(colors.brand.dark),
+        theme(colors.brand.dark)
+      ),
+      linear-gradient(to left, theme(colors.brand.light), transparent);
+
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+  }
+  .card-gradient-border-white-to-trans-r {
+    background: linear-gradient(
+        to right,
+        theme(colors.brand.dark),
+        theme(colors.brand.dark)
+      ),
+      linear-gradient(to right, theme(colors.white), transparent);
+
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+  }
+  .card-gradient-border-white-to-trans-b {
+    background: linear-gradient(
+        to right,
+        theme(colors.brand.dark),
+        theme(colors.brand.dark)
+      ),
+      linear-gradient(to bottom, theme(colors.white), transparent);
+
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
+  }
+}
+.swiper-wrapper {
+  margin-bottom: 30px;
+}
+.swiper-pagination {
+  margin-left: -20px;
+}
+.swiper-pagination .swiper-pagination-bullet {
+  width: 20px;
+  height: 3px;
+  border-radius: 4px;
+}
+@media only screen and (min-width: 1024px) {
+  .swiper-wrapper {
+    margin-bottom: 60px;
+  }
+  .swiper-pagination {
+    margin-left: -100px;
+  }
+  .swiper-pagination .swiper-pagination-bullet {
+    width: 48px;
+    height: 7px;
+    border-radius: 4px;
+    margin: 0 7px !important;
+  }
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: theme(colors.brand.text);
+}
+.gradient-borders {
+  box-shadow: 0px -2px 7px rgba(255, 226, 170, 0.3);
+  margin-top: 7px;
+}
+.gradient-borders:hover {
+  box-shadow: 0px -2px 7px rgba(239, 215, 88, 0.4);
+  transition: all 0.5s ease;
+}
+.gradient-borders::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  padding: 3px;
+  background: linear-gradient(180deg, #8f7752, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.gradient-borders:hover::before {
+  background: linear-gradient(180deg, #efd758, transparent);
+}
+.arenas .swiper {
+  padding-left: 50px !important;
+  padding-right: 50px !important;
+}
+@media only screen and (max-width: 768px) {
+  .arenas .swiper {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+}
+.arenas .swiper-button-next,
+.arenas .swiper-button-prev {
+  top: calc(50% - 30px);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+  padding: 27px 16px;
+  border-radius: 3px;
+}
+
+.arenas .swiper-button-next {
+  right: 0;
+}
+.arenas .swiper-button-prev {
+  left: 0;
+}
+
+.arenas .swiper-button-next:hover,
+.arenas .swiper-button-prev:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.arenas .swiper-button-next:after,
+.arenas .swiper-button-prev:after {
+  font-size: 15px;
+}
